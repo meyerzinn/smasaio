@@ -28,7 +28,7 @@ func NewGame(options ...Option) {
 	game := Game{
 		world:    &ecs.World{},
 		stop:     make(chan struct{}),
-		tickRate: 50 * time.Millisecond,
+		tickRate: 20,
 	}
 	for _, o := range options {
 		o(&game)
@@ -49,7 +49,7 @@ func NewGame(options ...Option) {
 			select {
 			case <-ticker.C:
 				now := time.Now().UnixNano()
-				delta := float64(now-timeStart) / 1000000000
+				delta := float64(now-timeStart) / 1000000
 				timeStart = now
 				game.tick(delta)
 			case <-game.stop:
