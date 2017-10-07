@@ -1,0 +1,37 @@
+namespace packets;
+
+table Ship {
+    armed:bool;
+    shielded:bool;
+}
+
+union Component {Ship}
+
+table ComponentWrapper {
+    component:Component;
+}
+
+struct Position {
+    x:long;
+    y:long;
+}
+
+table Entity {
+    id:ulong;
+    type:ubyte;
+    pos:Position;
+    components:[ComponentWrapper];
+}
+
+union Packet {WorldSnapshot}
+
+table PacketWrapper {
+  data:Packet;
+}
+
+table WorldSnapshot {
+    destroy:[ulong];
+    entities:[Entity];
+}
+
+root_type PacketWrapper;
