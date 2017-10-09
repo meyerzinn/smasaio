@@ -5,6 +5,6 @@ type System interface {
 	// with dt being the duration since the previous update.
 	Update(dt float64)
 
-	// Remove removes the given entity from the system.
+	// Remove removes the given entities from the system.
 	Remove(id EntityID)
 }

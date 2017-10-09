@@ -1,8 +1,7 @@
 package component
 
 type Cannon struct {
-	Armed          bool
-	LastShot       int
-	Cooldown       int
+	Cooldown       uint
+
 	BulletLifetime int
 }

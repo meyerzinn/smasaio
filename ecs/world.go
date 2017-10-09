@@ -34,7 +34,7 @@ func (w *World) Update(dt float64) {
 	}
 }
 
-// RemoveEntity removes the entity across all systems.
+// RemoveEntity removes the entities across all systems.
 func (w *World) RemoveEntity(id EntityID) {
 	w.lock.Lock()
 	for _, sys := range w.systems {

@@ -1,6 +1,6 @@
 package component
 
 type Health struct {
-	Health int
-	Max    int
+	Current int
+	Max     int
 }

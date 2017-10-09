@@ -14,10 +14,15 @@ type entity struct {
 
 type System struct {
 	entities []entity
+	Space    *cp.Space
 }
 
-func NewSystem() ecs.System {
-	return &System{}
+func (s *System) Add(id ecs.EntityID, input *component.Input, physics *component.Physics) {
+	s.entities = append(s.entities, entity{id, input, physics})
+}
+
+func NewSystem(space *cp.Space) ecs.System {
+	return &System{Space: space}
 }
 
 func (s *System) Update(dt float64) {

@@ -12,7 +12,7 @@ type System struct {
 
 func (s *System) Update(dt float64) {
 	for _, entity := range s.entities {
-		if entity.Health.Health <= 0 {
+		if entity.Health.Current <= 0 {
 			go s.world.RemoveEntity(entity.EntityID)
 		}
 	}
